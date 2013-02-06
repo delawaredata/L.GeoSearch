@@ -34,14 +34,15 @@ L.Control.GeoSearch = L.Control.extend({
             'searchLabel': options.searchLabel || 'search for address...',
             'notFoundMessage' : options.notFoundMessage || 'Sorry, that address could not be found.',
             'messageHideDelay': options.messageHideDelay || 3000,
-            'zoomLevel': options.zoomLevel || 18
+            'zoomLevel': options.zoomLevel || 18,
+            'icon': options.icon || new L.Icon.Default()
         };
     },
 
     onAdd: function (map) {
         var $controlContainer = $(map._controlContainer);
 
-        if ($controlContainer.children('.leaflet-top.leaflet-center').length == 0) {
+        if ($controlContainer.children('.leaflet-top.leaflet-center').length === 0) {
             $controlContainer.append('<div class="leaflet-top leaflet-center"></div>');
             map._controlCorners.topcenter = $controlContainer.children('.leaflet-top.leaflet-center').first()[0];
         }
@@ -105,7 +106,7 @@ L.Control.GeoSearch = L.Control.extend({
     },
 
     _processResults: function(results) {
-        if (results.length == 0)
+        if (results.length === 0)
             throw this._config.notFoundMessage;
 
         this._map.fireEvent('geosearch_foundlocations', {Locations: results});
@@ -114,7 +115,7 @@ L.Control.GeoSearch = L.Control.extend({
 
     _showLocation: function (location) {
         if (typeof this._positionMarker === 'undefined')
-            this._positionMarker = L.marker([location.Y, location.X]).addTo(this._map);
+            this._positionMarker = L.marker([location.Y, location.X], {icon: this._config.icon}).addTo(this._map);
         else
             this._positionMarker.setLatLng([location.Y, location.X]);
 
