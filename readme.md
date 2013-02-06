@@ -1,7 +1,8 @@
 #Why did we fork this?
 So far, we've changed the code to allow users to pick a different marker icon.
 
-Here's how to setup the service:
+Add l.control.geosearch.js, one of the provider scripts and the css file to your HTML document. You can then settup the service with:
+
 
 ````
 new L.Control.GeoSearch({
@@ -17,17 +18,7 @@ new L.Control.GeoSearch({
 To change the marker icon, simply pass a new L.Icon to the icon option. See the [Leaflet documentation](http://leafletjs.com/reference.html#icon) for more info about creating custom marker icons.
 
 ````
-var myIcon = L.icon({
-    iconUrl: 'my-icon.png',
-    iconRetinaUrl: 'my-icon@2x.png',
-    iconSize: [38, 95],
-    iconAnchor: [22, 94],
-    popupAnchor: [-3, -76],
-    shadowUrl: 'my-icon-shadow.png',
-    shadowRetinaUrl: 'my-icon-shadow@2x.png',
-    shadowSize: [68, 95],
-    shadowAnchor: [22, 94]
-});
+var myIcon = L.icon({....});
 
 new L.Control.GeoSearch({
 	provider: new L.GeoSearch.Provider.OpenStreetMap(),
@@ -35,7 +26,7 @@ new L.Control.GeoSearch({
 }).addTo(map);
 ````
 
-Here are the plans, though, for this fork:
+Here are the future plans for this fork:
   - Add ability to use circle markers
   - Be able to limit search to a bounding box, which will be useful for smaller maps.
 
