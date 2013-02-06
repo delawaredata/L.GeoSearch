@@ -1,3 +1,12 @@
+#Why did we fork this?
+So far, we've changed the code to allow users to pick a different marker icon.
+
+Here are the plans, though, for this fork:
+  - Add ability to use circle markers
+  - Be able to limit search to a bounding box, which will be useful for smaller maps.
+
+*Original Documentation Below*
+
 #Leaflet.GeoSearch
 Adds support for address lookup (a.k.a. geocoding / geoseaching) to Leaflet.
 
