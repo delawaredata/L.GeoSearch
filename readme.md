@@ -1,8 +1,7 @@
 #Why did we fork this?
-So far, we've changed the code to allow users to pick a different marker icon.
+We think the original is freaking awesome, but we want to add a little more functionality. So far, we've changed the code to allow users to pick a different marker icon or use the Leaflet CircleMarker.
 
-Add l.control.geosearch.js, one of the provider scripts and the css file to your HTML document. You can then settup the service with:
-
+Add l.control.geosearch.js, one of the provider scripts and the css file to your HTML document. You can then setup the service with:
 
 ````
 new L.Control.GeoSearch({
@@ -11,7 +10,8 @@ new L.Control.GeoSearch({
 	notFoundMessage: 'Sorry, that address could not be found.',  // Default
 	messageHideDelay: 3000,  // Default
 	zoomLevel: 18,  // Default
-	icon: new L.Icon.Default()  // Default
+	icon: new L.Icon.Default(),  // Default
+	cirlceoptions: false  // Default
 }).addTo(map);
 ````
 
@@ -26,11 +26,30 @@ new L.Control.GeoSearch({
 }).addTo(map);
 ````
 
+Likewise, you can use a CircleMarker by passing a dictionary of styles to the circleoptions variable.
+
+````
+var myStyles = {
+	radius: 12,
+	fillColor: "#ff7800",
+	color: "#000",
+	weight: 1,
+	opacity: 1,
+	fillOpacity: 0.8
+};
+
+new L.Control.GeoSearch({
+	provider: new L.GeoSearch.Provider.OpenStreetMap(),
+	circleoptions: myStyles
+}).addTo(map);
+````
+
+If you use both icon and circleoptions, the circle marker will override the custom icon marker.
+
 Here are the future plans for this fork:
-  - Add ability to use circle markers
   - Be able to limit search to a bounding box, which will be useful for smaller maps.
 
-*Original Documentation Below*
+**Original Documentation Below**
 
 #Leaflet.GeoSearch
 Adds support for address lookup (a.k.a. geocoding / geoseaching) to Leaflet.
