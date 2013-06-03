@@ -1,5 +1,4 @@
-#Why did we fork this?
-We think the original is freaking awesome, but we want to add a little more functionality. So far, we've changed the code to allow users to pick a different marker icon or use the Leaflet CircleMarker.
+Changed the code to allow users to pick a different marker icon or use the Leaflet CircleMarker.
 
 Add l.control.geosearch.js, one of the provider scripts and the css file to your HTML document. You can then setup the service with:
 
